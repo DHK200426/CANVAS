@@ -14,9 +14,7 @@ export class Ball{
         this.y += this.vy;
 
         this.bounceDectetion(sw,sh);
-
-        this.bounceBrick(Brick);
-        
+                
         ctx.fillStyle = '#fdd700';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
@@ -39,7 +37,7 @@ export class Ball{
         }
     }
 
-    bounceBrick(Brick){
+    /*bounceBrick(Brick){
         const minX = Brick.x - this.radius;
         const maxX = Brick.maxX + this.radius;
         const minY = Brick.y - this.radius;
@@ -69,4 +67,5 @@ export class Ball{
 
         }
     }
+    */
 }

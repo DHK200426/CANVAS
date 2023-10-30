@@ -1,18 +1,14 @@
-import {
-    Box
-} from './box.js';
-
-export class Brick extends Box {
-    
-    draw(ctx,ball) {
-        ctx.fillStyle = '#4F6F52';
-        ctx.beginPath();
-        this.disapper(ball);
-        ctx.rect(this.x , this.y, this.width, this.height);
-        ctx.fill();
+export class Box {
+    constructor(width, height, x, y) {
+        this.width = width;
+        this.height = height;
+        this.x = x;
+        this.y = y;
+        this.maxX = width + x;
+        this.maxY = height + y;
     }
 
-    disapper(ball){
+    bounceBall(ball){
         const minX = this.x - ball.radius;
         const maxX = this.maxX + ball.radius;
         const minY = this.y - ball.radius;
@@ -40,8 +36,7 @@ export class Brick extends Box {
                 ball.y += ball.vy;
             }
 
-            
-
         }
     }
-}
+
+}   

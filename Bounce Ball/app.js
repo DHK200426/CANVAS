@@ -3,8 +3,13 @@ import {
 } from './ball.js';
 
 import {
+    Bar
+} from './bar.js';
+
+import {
     Brick
-} from './brick.js';
+} from "./brick.js";
+
 
 class App {
     constructor() {
@@ -16,7 +21,9 @@ class App {
         this.resize();
 
         this.make_ball();
-        this.brick = new Brick(700,30,300,450);
+        this.bar = new Bar(700,30,300,450);
+
+        this.brick = new Brick(340,100,120,40);
 
         document.addEventListener("mousemove", (e) => {
             this.mouseX = e.clientX;
@@ -43,9 +50,11 @@ class App {
         window.requestAnimationFrame(this.animate.bind(this));
 
         this.ctx.clearRect(0,0,this.stageWidth,this.stageHeight);
-        this.ball.draw(this.ctx,this.stageWidth,this.stageHeight,this.brick);
-        this.brick.draw(this.ctx);
-        this.brick.setxandy(this.mouseX,this.mouseY);
+        this.bar.draw(this.ctx,this.ball);
+        this.bar.setxandy(this.mouseX,this.mouseY);
+        this.ball.draw(this.ctx,this.stageWidth,this.stageHeight);
+        this.brick.draw(this.ctx,this.ball);
+
     }
 }
 
